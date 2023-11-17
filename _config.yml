@@ -51,10 +51,10 @@ author_work_experiences:
 # Education
 author_education_details:
               - college_logo: mit.png
-                college_name: Simon Fraser University
-                college_url: SFU.ca
-                college_degree: Computing Science
-                description: Bachelor of Applied Science (Expected Graduation: 2024)
+                college_name: MIT
+                college_url: https://mit.org
+                college_degree: CS Engineer
+                description: Bachelor of Technology
                 visibility: true
 
 # Projects
