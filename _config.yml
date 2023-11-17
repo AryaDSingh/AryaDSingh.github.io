@@ -33,54 +33,73 @@ author_website_url: "https://sujaykundu.com"
 typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
-# Experiences
+# Work Experience
 author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
-              description: Worked on various Google Products
-              visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
-              visibility: true
+  - company_name: CCCIA
+    company_logo: cccia_logo.png
+    company_url: "https://ccciasurrey.ca"
+    designation: Website Developer
+    description: >
+      Design and develop user-friendly websites that reflect our organization's mission.
+      Collaborate with the team to understand project requirements and create design concepts.
+      Customize website templates or create custom designs using web design technologies.
+      Update and maintain existing websites, adding content and making improvements.
+      Test websites for functionality and troubleshoot any issues.
+
+  - company_name: Hawkeye Drone Academy
+    company_logo: hawkeye_logo.png
+    company_url: "https://www.hawkeyedroneacademy.ca"
+    designation: Instructor
+    description: >
+      Developed an introductory course on Python with a focus on unplugged learning directed towards elementary and high school kids.
+      Learned and used Sphero to create fun and engaging interactive lessons to drive stronger retention of topics.
+      Designed projects, activities, and games that allow for very hands-on programming.
 
 # Education
 author_education_details:
-              - college_logo: mit.png
-                college_name: MIT
-                college_url: https://mit.org
-                college_degree: CS Engineer
-                description: Bachelor of Technology
-                visibility: true
+  - college_logo: sfu.png
+    college_name: Simon Fraser University
+    college_url: "https://www.sfu.ca"
+    college_degree: B.S Computing Science
+    description: Expected graduation: 2024
 
-# Projects
-author_project_details:
-              - project_thumbnail: gamershub.png
-                project_title: Gamers Hub
-                project_description: A Platform built for Gamers and Game Devs
-                project_url: https://gamershub.in
-                visibility: true
-              - project_thumbnail: hack4r.PNG
-                project_title: Hack4r
-                project_description: A Platform built for Hackers and Penetration Testers
-                project_url: https://hack4r.com
-                visibility: true
+# Technical Projects
+technical_projects:
+  - project_thumbnail: night_sky.png
+    project_title: Night Sky
+    project_description: >
+      JavaScript code that aims to create an animated space image using HTML5 and the 2D rendering context.
+      Most aspects of the project are randomly generated, resulting in a different scene during runtime.
+      Uses Global Alpha to control the opacity of various elements, allowing for fading and transparency effects.
+      Uses an animation loop to continuously update the canvas to create dynamic effects.
 
-# social links
-twitter_username: johndoe
-github_username:  sujaykundu777
-facebook_username: johndoe
-linkedin_username: johndoe
-behance_username: johndoe
-instagram_username: johndoe
-medium_username: johndoe
-telegram_username: johndoe
-dribbble_username: johndoe
-flickr_username: johndoe
+  - project_thumbnail: cow_render.png
+    project_title: Cow Render
+    project_description: >
+      A render of a cow with two light sources in HTML and CSS, using Rasterization in WebGL.
+      User interaction allows scaling, translation, and rotation of the image.
+      Uses an animation loop to continuously update positions of the cow and lighting.
+      Uses Phong reflection and shading to make the cow appear realistic, 3D, and smooth.
+
+  - project_thumbnail: mountain_language.png
+    project_title: Mountain Language
+    project_description: >
+      Created a program for the 2023 Mountain Madness Hackathon with a theme of "Lost in Translation" and "Mountainous."
+      Allows users to send messages with a mountain-themed twist.
+      Uses the Sockets API in Python to send messages across a network.
+      The message is ciphered using a dictionary full of mountainous language and sent to another user who can translate it.
+
+  - project_thumbnail: sudoku_game.png
+    project_title: Sudoku Language Game
+    project_description: >
+      Designed a Sudoku game that allows the user to practice a language of their choice using Sudoku.
+      Implemented features as per the customer's (instructors) needs.
+      Created and ran unit tests (JUnit) and UI tests to quickly and efficiently test the application against new features.
+
+# Social Links
+twitter_username: "" # Add your Twitter username
+github_username: "AryaDSingh"
+linkedin_username: "arya-singh-296b081bb"
 
 #for comments ( we got Disqus and Hyvor Commenting, uncomment the one you want to use )
 
@@ -95,7 +114,7 @@ mailchimp_form_url: https://sujaykundu.us10.list-manage.com/subscribe/post?u=50b
 
 # contact form - (choose formspress or getform)
 # getform_endpoint: 83b703c3-9e47-4df4-ac55-e24d7eb02abc
-formspree_email: johndoe@gmail.com
+formspree_email: ads26@sfu.ca
 
 # releases - widget can be (sidebar, modal or embed)
 olvy_organization: devlopr
