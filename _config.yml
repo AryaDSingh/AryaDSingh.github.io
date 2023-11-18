@@ -39,7 +39,7 @@ author_work_experiences:
 
 # Education
 author_education_details:
-              - college_logo: mit.png
+              - college_logo: sfulogo.jpeg
                 college_name: SFU
                 college_url: http://www.sfu.ca/
                 college_degree: Computer Science
@@ -48,7 +48,7 @@ author_education_details:
 
 # Technical Projects
 author_project_details:
-  - project_thumbnail: night_sky.png
+  - project_thumbnail: myScene.jpg
     project_title: Night Sky
     project_description: >
       JavaScript code that aims to create an animated space image using HTML5 and the 2D rendering context.
@@ -58,7 +58,7 @@ author_project_details:
     project_url: ""
     visibility: true
 
-  - project_thumbnail: cow_render.png
+  - project_thumbnail: cowpic.jpg
     project_title: Cow Render
     project_description: >
       A render of a cow with two light sources in HTML and CSS, using Rasterization in WebGL.
@@ -68,7 +68,7 @@ author_project_details:
     project_url: ""
     visibility: true
 
-  - project_thumbnail: mountain_language.png
+  - project_thumbnail: mountain.png
     project_title: Mountain Language
     project_description: >
       Created a program for the 2023 Mountain Madness Hackathon with a theme of "Lost in Translation" and "Mountainous."
@@ -78,7 +78,7 @@ author_project_details:
     project_url: ""
     visibility: true
 
-  - project_thumbnail: sudoku_game.png
+  - project_thumbnail: sudoku.png
     project_title: Sudoku Language Game
     project_description: >
       Designed a Sudoku game that allows the user to practice a language of their choice using Sudoku.
