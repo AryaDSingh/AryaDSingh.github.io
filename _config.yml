@@ -56,7 +56,7 @@ author_project_details:
       Uses Global Alpha to control the opacity of various elements, allowing for fading and transparency effects.
       Uses an animation loop to continuously update the canvas to create dynamic effects.
     project_url: ""
-    visibility: false
+    visibility: true
 
   - project_thumbnail: cow_render.png
     project_title: Cow Render
@@ -66,7 +66,7 @@ author_project_details:
       Uses an animation loop to continuously update positions of the cow and lighting.
       Uses Phong reflection and shading to make the cow appear realistic, 3D, and smooth.
     project_url: ""
-    visibility: false
+    visibility: true
 
   - project_thumbnail: mountain_language.png
     project_title: Mountain Language
@@ -76,7 +76,7 @@ author_project_details:
       Uses the Sockets API in Python to send messages across a network.
       The message is ciphered using a dictionary full of mountainous language and sent to another user who can translate it.
     project_url: ""
-    visibility: false
+    visibility: true
 
   - project_thumbnail: sudoku_game.png
     project_title: Sudoku Language Game
@@ -85,19 +85,9 @@ author_project_details:
       Implemented features as per the customer's (instructors) needs.
       Created and ran unit tests (JUnit) and UI tests to quickly and efficiently test the application against new features.
     project_url: ""
-    visibility: false
+    visibility: true
 
-
-
-
-
-
-
-
-
-
-
-                
+            
 
 # social links
 github_username: AryaDSingh
