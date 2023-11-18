@@ -13,7 +13,7 @@ urls:
 
 # Edit Author details (For multi authors check _data/authors.yml)
 
-author_logo: profile.png
+author_logo: bitmoji.jpg
 author: Arya Singh
 author_bio: Hi, my name is Arya Singh. I am a 4th year computer science student at SFU. I am currently looking for a co op.
 author_email: "ads26@sfu.ca"
@@ -25,13 +25,13 @@ hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg.
 # Experiences
 author_work_experiences:
             - company_name: CCCIA
-              company_logo: microsoft.png
+              company_logo: CCCIA.jfif
               company_url: http://www.cccia.ca/
               designation: Web Developer
               description: Customize website templates or create custom designs using web design technologies. Update and maintain existing websites, adding content and making improvements. Test webpages for functionality and troubleshoot any issues.
               visibility: true
             - company_name: Hawkeye Drone Academy
-              company_logo: google.png
+              company_logo: hawkeye.jfif
               company_url: "https://www.hawkeyedroneacademy.ca"
               designation: Intructor
               description: Taught children how to code! Developed an introductory course on Python with a focus on unplugged learning directed towards elementary and high school kids. Learned and used Sphero to create fun and engaging interactive lessons to drive stronger retention of topics. Designed projects, activities, and games that allow for very hands-on programming.
@@ -48,7 +48,7 @@ author_education_details:
 
 # Technical Projects
 author_project_details:
-  - project_thumbnail: myScene.jpg
+  - project_thumbnail: myScene.JPG
     project_title: Night Sky
     project_description: >
       JavaScript code that aims to create an animated space image using HTML5 and the 2D rendering context.
