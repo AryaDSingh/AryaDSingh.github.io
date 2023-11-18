@@ -10,12 +10,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 urls:
     - text: About
       url: /about
-    - text: Blog
-      url: /blog
-    - text: Gallery
-      url: /gallery
-    - text: Shop
-      url : /shop
     - text: Contact
       url : /contact
 
@@ -43,7 +37,7 @@ author_work_experiences:
               company_logo: microsoft.png
               company_url: http://www.cccia.ca/
               designation: Web Developer
-              description: Customize website templates or create custom designs using web design technologies. Update and maintain existing websites, adding content and making improvements. Test websites for functionality and troubleshoot any issues.
+              description: Customize website templates or create custom designs using web design technologies. Update and maintain existing websites, adding content and making improvements. Test webpages for functionality and troubleshoot any issues.
               visibility: true
 
 # Education
@@ -85,7 +79,7 @@ mailchimp_form_url: https://sujaykundu.us10.list-manage.com/subscribe/post?u=50b
 
 # contact form - (choose formspress or getform)
 # getform_endpoint: 83b703c3-9e47-4df4-ac55-e24d7eb02abc
-#formspree_email: johndoe@gmail.com
+formspree_email: ads26@sfu.ca
 
 # releases - widget can be (sidebar, modal or embed)
 #olvy_organization: devlopr
