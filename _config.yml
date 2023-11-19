@@ -49,44 +49,44 @@ author_education_details:
 # Technical Projects
 author_project_details:
 
- - project_thumbnail: dither.JPG
-  project_title: Tiff Image Processing
-  project_description: >
-    Developed a TIFF image processing application in C++ using the Qt
-    framework for a graphical user interface.
-    Implemented various image processing modes, including brightness
-    reduction, ordered dithering, and auto-level adjustment.
-    Utilized a 2x2 dither matrix for ordered dithering to convert
-    grayscale images into binary images.
-    Integrated keyboard event handling to allow users to cycle through
-    different processing modes.
-    Provided a user-friendly interface for opening TIFF files, viewing
-    original images, and applying diverse processing techniques.
-  project_url: ""
-  visibility: true
+  - project_thumbnail: dither.JPG
+    project_title: Tiff Image Processing
+    project_description: >
+      Developed a TIFF image processing application in C++ using the Qt
+      framework for a graphical user interface.
+      Implemented various image processing modes, including brightness
+      reduction, ordered dithering, and auto-level adjustment.
+      Utilized a 2x2 dither matrix for ordered dithering to convert
+      grayscale images into binary images.
+      Integrated keyboard event handling to allow users to cycle through
+      different processing modes.
+      Provided a user-friendly interface for opening TIFF files, viewing
+      original images, and applying diverse processing techniques.
+    project_url: ""
+    visibility: true
 
- - project_thumbnail: audio1wav.JPG
-   project_title: Waveform Plotter
-   project_description: >
-    Developed a sophisticated waveform plotter application in C++ using
-    the Qt framework, offering a dynamic graphical representation of
-    audio waveforms.
-    Implemented various signal processing functionalities, including
-    downsampling for efficient visualization of large audio files, ensuring
-    optimal performance and user experience.
-    Applied advanced downsampling techniques, utilizing a user-defined
-    downsample factor to accurately represent audio data while
-    enhancing visual clarity.
-    Used compression techniques such as Huffman and Shannon
-    Fanocoding to showcase average code word length and entropy.
-    Integrated file handling mechanisms, allowing users to open and
-    analyze .wav files seamlessly, with detailed information about the
-    audio file displayed for user understanding.
-    Designed and implemented a user-friendly interface, providing an
-    intuitive platform for users to interact with audio files, visualize
-    waveforms, and explore the nuances of signal processing.
-  project_url: ""
-  visibility: true
+  - project_thumbnail: audio1wav.JPG
+    project_title: Waveform Plotter
+    project_description: >
+      Developed a sophisticated waveform plotter application in C++ using
+      the Qt framework, offering a dynamic graphical representation of
+      audio waveforms.
+      Implemented various signal processing functionalities, including
+      downsampling for efficient visualization of large audio files, ensuring
+      optimal performance and user experience.
+      Applied advanced downsampling techniques, utilizing a user-defined
+      downsample factor to accurately represent audio data while
+      enhancing visual clarity.
+      Used compression techniques such as Huffman and Shannon
+      Fanocoding to showcase average code word length and entropy.
+      Integrated file handling mechanisms, allowing users to open and
+      analyze .wav files seamlessly, with detailed information about the
+      audio file displayed for user understanding.
+      Designed and implemented a user-friendly interface, providing an
+      intuitive platform for users to interact with audio files, visualize
+      waveforms, and explore the nuances of signal processing.
+    project_url: ""
+    visibility: true
 
   - project_thumbnail: myScene.JPG
     project_title: Night Sky
