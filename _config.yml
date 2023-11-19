@@ -48,6 +48,46 @@ author_education_details:
 
 # Technical Projects
 author_project_details:
+
+ - project_thumbnail: dither.JPG
+  project_title: Tiff Image Processing
+  project_description: >
+    Developed a TIFF image processing application in C++ using the Qt
+    framework for a graphical user interface.
+    Implemented various image processing modes, including brightness
+    reduction, ordered dithering, and auto-level adjustment.
+    Utilized a 2x2 dither matrix for ordered dithering to convert
+    grayscale images into binary images.
+    Integrated keyboard event handling to allow users to cycle through
+    different processing modes.
+    Provided a user-friendly interface for opening TIFF files, viewing
+    original images, and applying diverse processing techniques.
+  project_url: ""
+  visibility: true
+
+ - project_thumbnail: audio1wav.JPG
+   project_title: Waveform Plotter
+   project_description: >
+    Developed a sophisticated waveform plotter application in C++ using
+    the Qt framework, offering a dynamic graphical representation of
+    audio waveforms.
+    Implemented various signal processing functionalities, including
+    downsampling for efficient visualization of large audio files, ensuring
+    optimal performance and user experience.
+    Applied advanced downsampling techniques, utilizing a user-defined
+    downsample factor to accurately represent audio data while
+    enhancing visual clarity.
+    Used compression techniques such as Huffman and Shannon
+    Fanocoding to showcase average code word length and entropy.
+    Integrated file handling mechanisms, allowing users to open and
+    analyze .wav files seamlessly, with detailed information about the
+    audio file displayed for user understanding.
+    Designed and implemented a user-friendly interface, providing an
+    intuitive platform for users to interact with audio files, visualize
+    waveforms, and explore the nuances of signal processing.
+  project_url: ""
+  visibility: true
+
   - project_thumbnail: myScene.JPG
     project_title: Night Sky
     project_description: >
@@ -55,17 +95,17 @@ author_project_details:
       Most aspects of the project are randomly generated, resulting in a different scene during runtime.
       Uses Global Alpha to control the opacity of various elements, allowing for fading and transparency effects.
       Uses an animation loop to continuously update the canvas to create dynamic effects.
-    project_url: ""
+    project_url: "https://github.com/AryaDSingh/NightSky"
     visibility: true
 
   - project_thumbnail: cowpic.jpg
-    project_title: Cow Render
+    project_title: Cow Shading Render
     project_description: >
       A render of a cow with two light sources in HTML and CSS, using Rasterization in WebGL.
       User interaction allows scaling, translation, and rotation of the image.
       Uses an animation loop to continuously update positions of the cow and lighting.
       Uses Phong reflection and shading to make the cow appear realistic, 3D, and smooth.
-    project_url: ""
+    project_url: "https://github.com/AryaDSingh/CowShading"
     visibility: true
 
   - project_thumbnail: mountain.png
@@ -75,7 +115,7 @@ author_project_details:
       Allows users to send messages with a mountain-themed twist.
       Uses the Sockets API in Python to send messages across a network.
       The message is ciphered using a dictionary full of mountainous language and sent to another user who can translate it.
-    project_url: ""
+    project_url: "https://github.com/AryaDSingh/2023-Mountain-Madness-Hackathon-Project-"
     visibility: true
 
   - project_thumbnail: sudoku.png
@@ -84,8 +124,10 @@ author_project_details:
       Designed a Sudoku game that allows the user to practice a language of their choice using Sudoku.
       Implemented features as per the customer's (instructors) needs.
       Created and ran unit tests (JUnit) and UI tests to quickly and efficiently test the application against new features.
-    project_url: ""
+    project_url: "https://github.com/AryaDSingh/Java-Sudoku-Group-Project-CMPT-276"
     visibility: true
+
+
 
             
 
