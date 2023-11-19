@@ -74,17 +74,12 @@ author_project_details:
       Implemented various signal processing functionalities, including
       downsampling for efficient visualization of large audio files, ensuring
       optimal performance and user experience.
-      Applied advanced downsampling techniques, utilizing a user-defined
-      downsample factor to accurately represent audio data while
-      enhancing visual clarity.
       Used compression techniques such as Huffman and Shannon
       Fanocoding to showcase average code word length and entropy.
       Integrated file handling mechanisms, allowing users to open and
       analyze .wav files seamlessly, with detailed information about the
       audio file displayed for user understanding.
-      Designed and implemented a user-friendly interface, providing an
-      intuitive platform for users to interact with audio files, visualize
-      waveforms, and explore the nuances of signal processing.
+   
     project_url: ""
     visibility: true
 
