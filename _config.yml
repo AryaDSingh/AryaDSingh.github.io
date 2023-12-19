@@ -49,6 +49,17 @@ author_education_details:
 # Technical Projects
 author_project_details:
 
+- project_thumbnail: 
+    project_title: Medical Image Tampering Detection
+    project_description: >
+      In a group of 5, developed an AI framework leveraging CT-GAN for tamper detection in medical images, addressing challenges in diverse computing environments and computational constraints.
+      Utilised the CT-GAN for in-painting tasks in 3D medical scans, trained models to identify tampered regions in cancerous lung nodules
+      Overcame obstacles in code execution and model training, using Python, PyTorch, and collaborating via Slack and GitHub
+      Successfully identified and in-painted cancerous lung nodules
+
+    project_url: "https://github.com/sfu-cmpt340/project_04"
+    visibility: true
+
   - project_thumbnail: dither.JPG
     project_title: Tiff Image Processing
     project_description: >
