@@ -57,9 +57,8 @@ author_project_details:
       Utilised the CT-GAN for in-painting tasks in 3D medical scans, trained models to identify tampered regions in cancerous lung nodules
       Overcame obstacles in code execution and model training, using Python, PyTorch, and collaborating via Slack and GitHub
       Successfully identified and in-painted cancerous lung nodules
-
     project_url: "https://github.com/sfu-cmpt340/project_04"
-    project_video: "https://www.youtube.com/watch?v=your_video_id"
+    project_video: "https://youtu.be/aVFTc1NgzC8"
     visibility: true
 
   - project_thumbnail: dither.JPG
