@@ -49,7 +49,7 @@ author_education_details:
 # Technical Projects
 author_project_details:
 
-  - project_thumbnail: 
+  - project_thumbnail: biomedical_project.JPG
     project_title: Medical Image Tampering Detection
     project_description: >
       In a group of 5, developed an AI framework leveraging CT-GAN for tamper detection in medical images, 
@@ -59,6 +59,7 @@ author_project_details:
       Successfully identified and in-painted cancerous lung nodules
 
     project_url: "https://github.com/sfu-cmpt340/project_04"
+    project_video: "https://www.youtube.com/watch?v=your_video_id"
     visibility: true
 
   - project_thumbnail: dither.JPG
