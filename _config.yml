@@ -49,7 +49,7 @@ author_education_details:
 # Technical Projects
 author_project_details:    
 
-  - project_thumbnail: biomedical_project.JPG
+  - project_thumbnail: NeRFbunny.PNG
     project_title: Neural Field Reconstruction
     project_description: >
       Implemented a neural field network model that reconstructs 3D objects form a set of occupancy field samples
@@ -60,7 +60,7 @@ author_project_details:
       Conducted a study through rigorous testing and experimentation to evaluate the model's performance across different LOD levels, 
       assessing its ability to accurately represent neural activity while minimising computational costs.
     project_url: "https://docs.google.com/presentation/d/e/2PACX-1vR1XszGW8n2wNSNFNhGudPP0VuPnz-gOBy4qHzwuvxqrAXAGkP7qc9KixCQ1VqlhOk7R8DePggyHLlw/pub?start=false&loop=false&delayms=3000"
-    project_video: "https://github.com/sfu-cmpt340/project_04"
+    project_video: "https://github.com/sfu-3dv-spring24/sfu-3dv-spring24-hw3-AryaDSingh"
     visibility: true
 
 
