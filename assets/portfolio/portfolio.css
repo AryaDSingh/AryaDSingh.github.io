@@ -76,6 +76,16 @@ p+p{margin-top:18px}
 .rpg-links{display:flex;flex-wrap:wrap;align-items:start;gap:22px;margin-top:20px}
 .rpg-project p.project-meta{font:11px/1.7 var(--mono);margin-top:18px}
 .rpg-links a{font-size:13px;color:var(--blue)}
+.team-project .eyebrow{font:11px/1.7 var(--mono);margin:0 0 15px;color:var(--blue)}
+.team-project+.rpg-project{margin-top:30px;border-top:0;padding-top:0}
+.baby-process{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.process-sketch{margin-top:30px}
+.process-sketch figcaption{font-size:12px;line-height:1.5;color:var(--muted);margin-top:12px}
+.team-title{font-size:clamp(36px,4vw,55px)}
+.team-credits{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:24px 35px;margin:36px 0 0}
+.team-credits>div{border-top:1px solid var(--rule);padding-top:15px}
+.team-credits dt{font:500 22px var(--display);letter-spacing:-.02em}
+.team-credits dd{margin:5px 0 0;font-size:14px;color:var(--muted)}
 .sky-section{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr);gap:50px;background:#161c29;color:#f3f1e8;padding:55px 46px 42px;margin:100px -24px 0}
 .eyebrow{font:11px/1.7 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:23px}
 .sky-copy .eyebrow{color:#b1bddd}
