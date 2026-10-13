@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <meta name="description" content="Barrowlight case study: tactical roguelike design, C++ architecture, and playtesting by Arya Singh.">
+  <title>Barrowlight — Arya Singh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/portfolio/portfolio.css">
+</head>
+<body class="case-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="site-header" id="top">
+      <a class="brand" href="../" aria-label="Arya Singh, portfolio home">as<span class="accent">*</span></a>
+      <nav aria-label="Main navigation"><a href="../#work">Work</a><a href="../#about">About</a><a href="../#contact">Contact</a></nav>
+    </header>
+    <main id="main">
+      <section class="case-hero section-pad" aria-labelledby="case-title">
+        <p class="eyebrow">Barrowlight / Design &amp; development</p>
+        <div class="case-hero-grid"><div><h1 id="case-title">Barrowlight<span class="accent">.</span></h1><p class="case-lead">A turn-based roguelike where the ground, the light, and the timing of a turn all matter.</p><div class="hero-actions"><a class="button" href="https://github.com/AryaDSingh/Barrowlight/releases/latest" target="_blank" rel="noopener noreferrer">PLAY WINDOWS BUILD ↗</a><a class="plain-link" href="https://github.com/AryaDSingh/Barrowlight" target="_blank" rel="noopener noreferrer">EXPLORE SOURCE ↗</a></div></div><dl class="case-facts"><div><dt>MY ROLE</dt><dd>Game design, technical direction, playtesting</dd></div><div><dt>TECH</dt><dd>C++17, SFML 3, CMake</dd></div><div><dt>STATE</dt><dd>Released Windows build</dd></div></dl></div>
+      </section>
+      <figure class="case-banner"><img src="../../assets/portfolio/barrowlight-surfaces.png" width="1278" height="709" alt="Barrowlight encounter showing fire spreading across oil and lightning traveling through water"><figcaption><span>01 / COMBAT SYSTEM</span> Fire spreads over oil; lightning travels through water.</figcaption></figure>
+      <section class="case-story section-pad" aria-labelledby="story-title"><div><p class="eyebrow">THE DESIGN QUESTION</p><h2 id="story-title">Make knowledge<br><em>matter.</em></h2></div><div><p class="case-large">Can a player do better on the next run because they understand the world, even before they gain more power?</p><p>Barrowlight is built around that question. Encounters use telegraphed attacks, light and darkness, and surfaces that combine. Fire ignites oil, cold freezes water, and lightning travels through wet tiles. The aim is to make the environment something players can read and use.</p><a class="case-text-link" href="https://github.com/AryaDSingh/Barrowlight/blob/main/DESIGN.md" target="_blank" rel="noopener noreferrer">READ THE FULL DESIGN LOG ↗</a></div></section>
+      <section class="case-system section-pad" aria-labelledby="systems-title"><p class="eyebrow">FROM FEEL TO IMPLEMENTATION</p><h2 id="systems-title">Three decisions behind the game.</h2><div class="case-system-grid"><article><span>01 / PLAYER RULE</span><h3>Consequences are visible.</h3><p>Heavy attacks give the player a reaction window. Surfaces interact by rules that can be learned and reused across encounters.</p></article><article><span>02 / CODE RULE</span><h3>Preview and cast agree.</h3><p>Pure targeting functions drive both the on-screen preview and the actual cast, so the choice shown is the choice applied.</p></article><article><span>03 / TEST RULE</span><h3>Runs can be replayed.</h3><p>Rules are separate from rendering. A single seeded random stream makes bot-discovered bugs reproducible, alongside console and application tests.</p></article></div></section>
+      <figure class="case-banner case-banner-second"><img src="../../assets/portfolio/barrowlight-talents.png" width="1278" height="720" loading="lazy" alt="Barrowlight talent map showing affinity branches and a fireball tooltip with damage, cost and cooldown"><figcaption><span>02 / TALENT SYSTEM</span> The map and tooltips show how a build can branch before a player commits.</figcaption></figure>
+      <section class="case-story case-contribution section-pad" aria-labelledby="contribution-title"><div><p class="eyebrow">CONTRIBUTION &amp; PROCESS</p><h2 id="contribution-title">What I <em>owned.</em></h2></div><div><p class="case-large">I designed the systems, directed the architecture, and made the calls about what stayed, changed, or was cut.</p><p>Much of the code was implemented with AI coding assistants under my direction. I playtested each system by hand. The repository records that process and the technical trade-offs; it includes 19 console test programs, two application test programs, and a playtest bot.</p><div class="case-bottom-links"><a class="button" href="https://github.com/AryaDSingh/Barrowlight/releases/latest" target="_blank" rel="noopener noreferrer">PLAY BARROWLIGHT ↗</a><a class="plain-link" href="https://github.com/AryaDSingh/Barrowlight/blob/main/DESIGN.md" target="_blank" rel="noopener noreferrer">READ DESIGN NOTES ↗</a><a class="plain-link" href="../#work">BACK TO ALL WORK ↗</a></div></div></section>
+    </main>
+    <footer><span>© <span id="year">2026</span> ARYA SINGH</span><div><a href="https://github.com/AryaDSingh" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="mailto:ads26@sfu.ca">EMAIL ↗</a></div><a href="#top">BACK TO TOP ↑</a></footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
