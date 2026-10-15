@@ -198,7 +198,7 @@ footer div{display:flex;gap:26px}
 .floor-controls button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .floor-legend{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:0;padding:12px 0 0;font:11px/1.6 var(--mono);color:var(--muted)}
 .floor-legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
-.k-start{background:#7ee081}.k-exit{background:#c84a8a}.k-boss{background:#ff5a5a}.k-vault{background:#ffd34d}.k-event{background:#c9a6ff}.k-enc{border:2px solid #ff6b5a;border-radius:50%!important}.k-prop{background:#b98a52}
+.k-start{background:#7ee081}.k-exit{background:#c84a8a}.k-boss{background:#ff5a5a}.k-vault{background:#ffd34d}.k-event{background:#c9a6ff}.k-enc{border:2px solid #ff6b5a;border-radius:50%!important}.k-prop{background:#b98a52}.k-guard{background:#6fb6ff}.k-ledge{background:#ffb35c}.k-hide{border:2px dashed #8a8a80;border-radius:50%!important}
 .floor-rules{margin-top:70px}
 .floor-links{margin-top:45px}
 @media(max-width:720px){.floor-viewer figcaption p{margin:4px 0 12px}.floor-rules{margin-top:45px}}
