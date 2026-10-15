@@ -32,8 +32,13 @@
         <figcaption><span>02 / FLOOR GENERATOR</span><p id="floor-caption" aria-live="polite">Floor 4, Ruined Sanctum, seed 4</p><div class="floor-controls"><button type="button" id="floor-prev" aria-label="Previous floor">&larr;</button><button type="button" id="floor-next" aria-label="Next floor">NEXT FLOOR &rarr;</button></div></figcaption>
         <ul class="floor-legend" aria-label="Map key"><li><i class="k-start"></i>Start</li><li><i class="k-exit"></i>Door down (colour varies by floor)</li><li><i class="k-boss"></i>Boss</li><li><i class="k-vault"></i>Vault</li><li><i class="k-event"></i>Event</li><li><i class="k-enc"></i>Encounter</li><li><i class="k-prop"></i>Furniture</li><li><i class="k-guard"></i>Guard post</li><li><i class="k-ledge"></i>Archer&rsquo;s ledge</li><li><i class="k-hide"></i>Hiding place</li><li><em>Italic</em> names are generated rooms</li></ul>
       </figure>
-      <section class="case-system floor-rules section-pad" aria-labelledby="floor-rules-title"><p class="eyebrow">HOW IT STAYS SOUND</p><h2 id="floor-rules-title">Random, but never broken.</h2><div class="case-system-grid"><article><span>01 / CONNECTED BY CONSTRUCTION</span><h3>A tree first, loops second.</h3><p>Kruskal&rsquo;s algorithm over the shuffled grid edges builds a spanning tree; each remaining edge then opens with a 65% chance. Where a moved doorway meets a hand-made wall, the fewest walls are carved to join it up. The room farthest from the start holds the boss or the door down.</p></article><article><span>02 / ONE SET OF RULES</span><h3>Generated cells obey the hand-made rules.</h3><p>Doorways open, every tile reachable, a clear centre for encounters, at least half floor. A generated cell that fails is repaired or rerolled, up to 40 times.</p></article><article><span>03 / CHECKED AT SCALE</span><h3>Tested across seeds, seen at a glance.</h3><p>A console test flood-fills hundreds of floors and checks event rates. A viewer made for tuning draws any floor of the run from its seed, using the game&rsquo;s own parameters.</p></article></div><div class="case-bottom-links floor-links"><a class="button" href="floors/">SEE ALL 46 FLOORS &rarr;</a><a class="plain-link" href="https://github.com/AryaDSingh/Barrowlight/blob/main/src/world/DungeonGenerator.cpp" target="_blank" rel="noopener noreferrer">GENERATOR SOURCE ↗</a><a class="plain-link" href="https://github.com/AryaDSingh/Barrowlight/blob/main/tools/dungeon_viewer.cpp" target="_blank" rel="noopener noreferrer">VIEWER SOURCE ↗</a></div></section>
-      <figure class="case-banner case-banner-second"><img src="../../assets/portfolio/barrowlight-talents.png" width="1278" height="720" loading="lazy" alt="Barrowlight talent map showing affinity branches and a fireball tooltip with damage, cost and cooldown"><figcaption><span>03 / TALENT SYSTEM</span> The map and tooltips show how a build can branch before a player commits.</figcaption></figure>
+      <figure class="case-banner floor-viewer floor-steps" aria-label="How a Barrowlight floor is built, step by step">
+        <div class="floor-stage"><img id="step-image" src="../../assets/portfolio/barrowlight-steps/step-1.svg" width="630" height="390" alt="Generation step 1: a 3 by 3 grid of empty cells"></div>
+        <figcaption><span>03 / HOW A FLOOR IS BUILT</span><p id="step-caption" aria-live="polite"><b>1 / 9</b> A floor starts as a 3&times;3 grid of cells, each 21&times;13 tiles.</p><div class="floor-controls"><button type="button" id="step-prev" aria-label="Previous step">&larr;</button><button type="button" id="step-play" aria-pressed="false">PLAY</button><button type="button" id="step-next" aria-label="Next step">NEXT STEP &rarr;</button></div></figcaption>
+        <ol class="step-dots" aria-label="Steps"></ol>
+      </figure>
+      <section class="case-system floor-rules section-pad" aria-labelledby="floor-rules-title"><p class="eyebrow">HOW IT STAYS SOUND</p><h2 id="floor-rules-title">Random, but never broken.</h2><div class="case-system-grid"><article><span>01 / CONNECTED BY CONSTRUCTION</span><h3>A tree first, loops second.</h3><p>Kruskal&rsquo;s algorithm over the shuffled grid edges builds a spanning tree; each remaining edge then opens with a 65% chance. Doorways slide along their edges; behind them, a search that carves the fewest walls would join up anything cut off. With today&rsquo;s rooms it has never had to, across 1,600 floors measured. The room farthest from the start holds the boss or the door down.</p></article><article><span>02 / ONE SET OF RULES</span><h3>Generated cells obey the hand-made rules.</h3><p>Doorways open, every tile reachable, a clear centre for encounters, at least half floor. A generated cell that fails is repaired or rerolled, up to 40 times.</p></article><article><span>03 / CHECKED AT SCALE</span><h3>Tested across seeds, seen at a glance.</h3><p>A console test flood-fills hundreds of floors and checks event rates. A viewer made for tuning draws any floor of the run from its seed, using the game&rsquo;s own parameters.</p></article></div><div class="case-bottom-links floor-links"><a class="button" href="floors/">SEE ALL 46 FLOORS &rarr;</a><a class="plain-link" href="https://github.com/AryaDSingh/Barrowlight/blob/main/src/world/DungeonGenerator.cpp" target="_blank" rel="noopener noreferrer">GENERATOR SOURCE ↗</a><a class="plain-link" href="https://github.com/AryaDSingh/Barrowlight/blob/main/tools/dungeon_viewer.cpp" target="_blank" rel="noopener noreferrer">VIEWER SOURCE ↗</a></div></section>
+      <figure class="case-banner case-banner-second"><img src="../../assets/portfolio/barrowlight-talents.png" width="1278" height="720" loading="lazy" alt="Barrowlight talent map showing affinity branches and a fireball tooltip with damage, cost and cooldown"><figcaption><span>04 / TALENT SYSTEM</span> The map and tooltips show how a build can branch before a player commits.</figcaption></figure>
       <section class="case-story case-contribution section-pad" aria-labelledby="contribution-title"><div><p class="eyebrow">CONTRIBUTION &amp; PROCESS</p><h2 id="contribution-title">What I <em>owned.</em></h2></div><div><p class="case-large">I designed the systems, directed the architecture, and made the calls about what stayed, changed, or was cut.</p><p>Much of the code was implemented with AI coding assistants under my direction. I playtested each system by hand. The repository records that process and the technical trade-offs; it includes 19 console test programs, two application test programs, and a playtest bot.</p><div class="case-bottom-links"><a class="button" href="https://github.com/AryaDSingh/Barrowlight/releases/latest" target="_blank" rel="noopener noreferrer">PLAY BARROWLIGHT ↗</a><a class="plain-link" href="https://github.com/AryaDSingh/Barrowlight/blob/main/DESIGN.md" target="_blank" rel="noopener noreferrer">READ DESIGN NOTES ↗</a><a class="plain-link" href="../#work">BACK TO ALL WORK ↗</a></div></div></section>
     </main>
     <footer><span>© <span id="year">2026</span> ARYA SINGH</span><div><a href="https://github.com/AryaDSingh" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="mailto:ads26@sfu.ca">EMAIL ↗</a></div><a href="#top">BACK TO TOP ↑</a></footer>
@@ -57,6 +62,48 @@
       };
       document.getElementById('floor-prev').addEventListener('click', () => show(-1));
       document.getElementById('floor-next').addEventListener('click', () => show(1));
+    })();
+  </script>
+  <script>
+    (() => {
+      // The generator's own trace of floor 4, seed 287, drawn by dungeon_viewer --steps.
+      const steps = [
+        'A floor starts as a 3&times;3 grid of cells, each 21&times;13 tiles.',
+        'A cell or two may be solid rock, so the floor can be an L, a U or a ring, but never cut in two.',
+        'A pair of neighbouring cells may merge into one big room.',
+        'A random spanning tree joins every room, so the floor is always one connected space.',
+        'Most remaining joins open too (dotted): several routes, and foes can come from more than one side.',
+        'Each room is stamped in: a hand-made module, mirrored at random, or one generated to fit.',
+        'Doorways are cut where each join was placed (red), often off the middle of the edge.',
+        'Furniture goes in as whole arrangements, kept only if nothing is cut off.',
+        'Last, the encounters: here a Gauntlet ambush, a held Rift Crossing and a sealed vault.'
+      ];
+      const image = document.getElementById('step-image'), caption = document.getElementById('step-caption');
+      const play = document.getElementById('step-play'), dots = document.querySelector('.step-dots');
+      steps.forEach((_, i) => {
+        const li = document.createElement('li'), b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-label', `Step ${i + 1}`); b.addEventListener('click', () => { stop(); show(i); });
+        li.appendChild(b); dots.appendChild(li);
+      });
+      let index = 0, timer = null;
+      const show = (i) => {
+        index = (i + steps.length) % steps.length;
+        image.src = `../../assets/portfolio/barrowlight-steps/step-${index + 1}.svg`;
+        image.alt = `Generation step ${index + 1} of ${steps.length}`;
+        caption.innerHTML = `<b>${index + 1} / ${steps.length}</b> ${steps[index]}`;
+        dots.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', j === index ? 'step' : 'false'));
+      };
+      const stop = () => { clearInterval(timer); timer = null; play.textContent = 'PLAY'; play.setAttribute('aria-pressed', 'false'); };
+      play.addEventListener('click', () => {
+        if (timer) { stop(); return; }
+        if (index === steps.length - 1) show(0);
+        timer = setInterval(() => { if (index === steps.length - 1) stop(); else show(index + 1); }, 1800);
+        play.textContent = 'PAUSE'; play.setAttribute('aria-pressed', 'true');
+      });
+      document.getElementById('step-prev').addEventListener('click', () => { stop(); show(index - 1); });
+      document.getElementById('step-next').addEventListener('click', () => { stop(); show(index + 1); });
+      steps.forEach((_, i) => { new Image().src = `../../assets/portfolio/barrowlight-steps/step-${i + 1}.svg`; });
+      show(0);
     })();
   </script>
 </body>

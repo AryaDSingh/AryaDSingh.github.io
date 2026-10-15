@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 390" style="--door:#c84b87;--cell:#574e73" role="img" aria-label="Barrowlight floor 4, Ruined Sanctum, seed 287, generation step 2">
+<style>
+.grid line { stroke: #fff; stroke-opacity: .18; stroke-dasharray: 4 4; }
+.names text { fill: #fff; fill-opacity: .7; font: 600 10px system-ui, sans-serif; paint-order: stroke; stroke: #000; stroke-width: 2.5px; stroke-opacity: .6; }
+.names text.proc { font-style: italic; fill: #c9e4ff; }
+.decals circle { fill: #d8cbb0; fill-opacity: .55; }
+.props rect { fill: #b98a52; stroke: #3a2a18; stroke-width: 1; }
+.anchors circle { fill: none; stroke: #ff6b5a; stroke-width: 1.6; }
+.anchors .vig { fill: #ffd2c8; font: 9px system-ui, sans-serif; text-anchor: middle; paint-order: stroke; stroke: #000; stroke-width: 2px; stroke-opacity: .6; }
+.mark rect { stroke: #000; stroke-opacity: .5; }
+.mark text { font: 700 11px system-ui, sans-serif; text-anchor: middle; fill: #111; }
+.start rect { fill: #7ee081; } .exit rect { fill: var(--door); } .boss rect { fill: #ff5a5a; }
+.vault rect { fill: #ffd34d; } .event rect { fill: #c9a6ff; }
+.gate { fill: #ffd34d; fill-opacity: .6; }
+.posts .guard { fill: #6fb6ff; stroke: #0b2340; stroke-width: 1.2; }
+.posts .ledge { fill: #ffb35c; stroke: #3a2208; stroke-width: 1.2; }
+.posts .hidden { fill: none; stroke: #e4e4e4; stroke-width: 1.4; stroke-dasharray: 2 2; }
+.cells rect { fill: var(--cell); }
+.joins line { stroke-linecap: round; }
+.joins .tree { stroke: #ffd34d; stroke-width: 7; }
+.joins .extra { stroke: #c9e4ff; stroke-width: 5; stroke-dasharray: 2 10; }
+.carved rect { fill: #ff6b5a; fill-opacity: .85; }
+</style>
+<rect width="100%" height="100%" fill="#2f2942"/>
+<g class="cells"><rect x="8" y="8" width="194" height="114" rx="6"/><rect x="218" y="8" width="194" height="114" rx="6"/><rect x="428" y="8" width="194" height="114" rx="6"/><rect x="8" y="138" width="194" height="114" rx="6"/><rect x="218" y="138" width="194" height="114" rx="6"/><rect x="428" y="138" width="194" height="114" rx="6"/><rect x="218" y="268" width="194" height="114" rx="6"/><rect x="428" y="268" width="194" height="114" rx="6"/></g>
+<g class="joins"></g>
+</svg>
