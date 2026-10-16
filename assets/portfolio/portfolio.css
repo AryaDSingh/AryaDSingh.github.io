@@ -209,6 +209,37 @@ footer div{display:flex;gap:26px}
 .step-dots button::after{content:"";display:block;height:4px;background:var(--rule)}
 .step-dots button[aria-current="step"]::after{background:var(--blue)}
 .step-dots button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* Baby Night: try the call */
+.cry-demo{margin-top:10px}
+.cry-stage{background:#120f1c;color:#ece6f6;padding:clamp(18px,4vw,44px)}
+.cry-head{max-width:720px}
+.cry-head h3{font:600 clamp(26px,3vw,36px)/1.15 var(--display);letter-spacing:-.03em;margin:6px 0 10px;color:#fff}
+.cry-head p:last-child{color:#b9b0cc;font-size:15px;margin:0}
+.cry-label{font:10px/1.6 var(--mono);letter-spacing:.06em;color:#9c92b4;margin:0 0 8px}
+.cry-track{position:relative;display:flex;height:56px;margin:28px 0 22px;border-radius:4px;overflow:hidden}
+.cry-zone{display:flex;align-items:flex-end;padding:6px 8px;font:10px var(--mono);color:#120f1c}
+.cry-zone.fast{flex:.4;background:#ff8a7a}.cry-zone.good{flex:.8;background:#8fe3a8}.cry-zone.slow{flex:.4;background:#6b6382;color:#ece6f6}
+.cry-zone span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cry-needle{position:absolute;top:0;bottom:0;width:3px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px #120f1c}
+.cry-needle.idle{opacity:.25}
+.cry-meters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.cry-dots{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+.cry-dots li{width:18px;height:18px;border-radius:50%;border:2px solid #9c92b4}
+.cry-dots li.on{background:#8fe3a8;border-color:#8fe3a8}
+.cry-bar{height:10px;background:#2b2540;border-radius:5px;overflow:hidden}
+.cry-bar i{display:block;height:100%;width:100%;background:#8fe3a8;transition:width .2s}
+.cry-bar.monster i{background:#ff6b8b;transition:none}
+.cry-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.cry-actions .button{border:0;cursor:pointer}
+.cry-actions .button:disabled{opacity:.45;cursor:default}
+.cry-button{min-height:64px;min-width:180px;padding:0 28px;border:2px solid #ece6f6;border-radius:4px;background:none;color:#fff;font:600 18px var(--display);cursor:pointer}
+.cry-button small{font:10px var(--mono);color:#9c92b4;margin-left:8px}
+.cry-button:not(:disabled):hover,.cry-button:not(:disabled):active{background:#ece6f6;color:#120f1c}
+.cry-button:disabled{opacity:.35;cursor:default}
+.cry-button:focus-visible,.cry-actions .button:focus-visible{outline:2px solid #8fb4ff;outline-offset:3px}
+.cry-status{min-height:3em;margin:16px 0 0;color:#ece6f6;font-size:15px}
+@media(max-width:720px){.cry-meters{grid-template-columns:1fr;gap:16px}.cry-zone span{font-size:9px}}
+
 /* Runline route viewer */
 .route-viewer{margin-top:10px}
 .route-viewer .floor-controls button{min-height:44px;padding:0 16px;background:var(--paper);color:var(--blue);border:1px solid var(--blue);font:500 12px var(--mono)}

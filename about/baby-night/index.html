@@ -24,10 +24,92 @@
       <figure class="case-banner"><img src="../../assets/portfolio/baby-night-room.png" width="1920" height="1080" alt="Baby Night room artwork with a closed door, rabbit toy, and dark patterned wallpaper"><figcaption><span>TEAM ART / ROOM BACKGROUND</span>One of the room assets used by the browser game.</figcaption></figure>
       <section class="case-story section-pad" id="collaboration" aria-labelledby="contribution-title"><div><p class="eyebrow">My contribution</p><h2 id="contribution-title">Programming with<br><em>the team.</em></h2></div><div><p class="case-large">Stone and I worked together as programmers. We chose the stack and set up a pipeline our artists could feed into.</p><p>The project brought together 2D art, a 3D environment, character work, story, and audio. Our programming work included deciding how those contributions would reach the game, alongside choosing the technology to build it.</p><p>We used TypeScript and Vite for a browser build. The game uses DOM elements and CSS, with a fixed 16:9 frame that scales to the window. The project setup supports image assets and PNG animation sequences.</p><p>My contribution was on the programming side. The visual work shown here belongs to the team, credited below.</p></div></section>
       <section class="case-story section-pad baby-process" aria-labelledby="process-title"><div><p class="eyebrow">From our showcase</p><h2 id="process-title">The shared<br><em>starting point.</em></h2><figure class="process-sketch"><img src="../../assets/portfolio/baby-night-sketch.png" width="1305" height="746" loading="lazy" alt="Team whiteboard sketch of the baby's hands, crib, and a figure in the doorway"><figcaption>Early viewpoint sketch from the team’s presentation.</figcaption></figure></div><div><p class="case-large">The original idea centred on a baby’s satisfaction and the parents’ patience.</p><p>The team’s showcase traces that idea into a horror survival game with rhythm elements. Space remained the way to communicate. The playable loop asks the player to pace five cries while a monster approaches.</p><p>The art process combined 3D environment work with 2D drawing. Our stack and asset pipeline needed to accommodate those different contributions within the jam’s time constraint.</p><p>The result is a playable browser game with a short introduction that lets players rehearse the input before the night begins.</p></div></section>
+      <figure class="case-banner cry-demo" aria-labelledby="cry-title">
+        <div class="cry-stage">
+          <div class="cry-head"><p class="cry-label">THE CALL / TRY THE RHYTHM</p><h3 id="cry-title">Five cries, at a steady pace.</h3><p>The game&rsquo;s own rule and numbers, cut down to one call. Start a night, then cry five times before the monster arrives. Too fast and your parents lose patience; too slow and the call starts over.</p></div>
+          <div class="cry-track" aria-hidden="true">
+            <div class="cry-zone fast"><span>TOO FAST &lt; 0.4 s</span></div><div class="cry-zone good"><span>STEADY</span></div><div class="cry-zone slow"><span>&gt; 1.2 s STARTS OVER</span></div>
+            <div class="cry-needle" id="cry-needle"></div>
+          </div>
+          <div class="cry-meters">
+            <div><p class="cry-label">CALL</p><ol class="cry-dots" id="cry-dots"><li></li><li></li><li></li><li></li><li></li></ol></div>
+            <div><p class="cry-label">PARENTS&rsquo; PATIENCE</p><div class="cry-bar"><i id="cry-patience"></i></div></div>
+            <div><p class="cry-label">MONSTER</p><div class="cry-bar monster"><i id="cry-monster"></i></div></div>
+          </div>
+          <div class="cry-actions"><button type="button" class="button" id="cry-start">START A NIGHT</button><button type="button" class="cry-button" id="cry-press" disabled>CRY <small>space</small></button></div>
+          <p class="cry-status" id="cry-status" aria-live="polite">Press start, then cry with the button (or Space while it has focus).</p>
+        </div>
+        <figcaption><span>INTERACTIVE / FROM THE GAME&rsquo;S CONFIG</span> Same thresholds as the game: 0.4 s, 1.2 s, five presses, half the patience per shriek, a monster every 3&ndash;5 s.</figcaption>
+      </figure>
       <section class="section-pad" aria-labelledby="team-title"><p class="eyebrow">Team credits</p><h2 class="team-title" id="team-title">Who made what</h2><dl class="team-credits"><div><dt>Arya S.</dt><dd>Developer</dd></div><div><dt>Stone Y.</dt><dd>Developer</dd></div><div><dt>Justin D.</dt><dd>Story &amp; audio</dd></div><div><dt>Iris W.</dt><dd>2D artist</dd></div><div><dt>Jay D.</dt><dd>3D environment artist</dd></div><div><dt>Milian C.</dt><dd>Character artist</dd></div></dl><p class="credit">Roles as credited in the team showcase.</p><div class="case-bottom-links"><a class="button" href="https://cdm-gamejam-baby-night.vercel.app/" target="_blank" rel="noopener noreferrer">Play Baby Night ↗</a><a class="plain-link" href="../#work">Back to the work ↗</a></div></section>
       <div class="case-credit"><p><strong>Tools and process.</strong> The team’s showcase records Claude Code use for TypeScript implementation, with developers overseeing code structure. It also records AI assistance for early character concepts, story development, and combining the 3D and 2D art styles.</p></div>
     </main>
     <footer><span>Arya Singh © <span id="year">2026</span></span><div><a href="https://github.com/AryaDSingh" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:ads26@sfu.ca">Email ↗</a><a href="#top">Back to top ↑</a></div></footer>
   </div>
+  <script>
+    (() => {
+      // The call rule from Baby Night's src/game/update.ts, with src/game/config.ts's numbers.
+      const config = {callPresses: 5, minInterval: 0.4, maxInterval: 1.2, fastPressAnnoyance: 0.5, annoyanceDecay: 0.02,
+        threatInterval: [3, 5], monsterApproachTime: [3, 5]};
+      const $ = (id) => document.getElementById(id);
+      const start = $('cry-start'), press = $('cry-press'), status = $('cry-status');
+      const needle = $('cry-needle'), dots = [...$('cry-dots').children], patience = $('cry-patience'), monster = $('cry-monster');
+      const roll = ([a, b]) => a + Math.random() * (b - a);
+      const trackSeconds = 1.6; // the track shows the gap since the last cry, up to 1.6 s
+      let state = null, raf = null;
+      const now = () => performance.now() / 1000;
+      const render = () => {
+        dots.forEach((d, i) => d.classList.toggle('on', state && i < state.presses));
+        patience.style.width = `${(state ? 1 - state.annoyance : 1) * 100}%`;
+        monster.style.width = `${(state && state.threat ? state.proximity : 0) * 100}%`;
+        const gap = state && state.lastPressAt ? now() - state.lastPressAt : 0;
+        needle.style.left = `${Math.min(gap, trackSeconds) / trackSeconds * 100}%`;
+        needle.classList.toggle('idle', !(state && state.lastPressAt));
+      };
+      const end = (message) => {
+        cancelAnimationFrame(raf); raf = null;
+        status.textContent = message; press.disabled = true; start.disabled = false; start.textContent = 'TRY AGAIN';
+        render(); start.focus();
+      };
+      const frame = () => {
+        const t = now(), dt = t - state.lastTick; state.lastTick = t;
+        if (state.threat) {
+          state.proximity += dt / state.approachTime;
+          if (state.proximity >= 1) {
+            state.proximity = 1;
+            return end(state.annoyance >= 1 ? 'Your parents had stopped coming. The monster reached you.' : 'Too slow: the monster reached you before help came.');
+          }
+        }
+        render();
+        raf = requestAnimationFrame(frame);
+      };
+      start.addEventListener('click', () => {
+        state = {presses: 0, lastPressAt: 0, annoyance: 0, threat: true, proximity: 0, approachTime: roll(config.monsterApproachTime), lastTick: now(), calls: 0};
+        status.textContent = `A monster is coming: about ${state.approachTime.toFixed(1)} s. Cry five times.`;
+        start.disabled = true; start.textContent = 'NIGHT IN PROGRESS'; press.disabled = false; press.focus();
+        cancelAnimationFrame(raf); raf = requestAnimationFrame(frame);
+      });
+      press.addEventListener('click', () => {
+        if (!state || !state.threat) return;
+        const at = now(), last = state.lastPressAt, interval = at - last;
+        state.lastPressAt = at;
+        if (last === 0) { state.presses = 1; status.textContent = 'One. Keep the pace.'; }
+        else if (interval > config.maxInterval) { state.presses = 1; status.textContent = `${interval.toFixed(2)} s: too slow, the call starts over.`; }
+        else {
+          if (interval < config.minInterval) {
+            state.annoyance = Math.min(1, state.annoyance + config.fastPressAnnoyance);
+            status.textContent = `${interval.toFixed(2)} s: a shriek. It counts, but your parents notice.`;
+          } else status.textContent = `${interval.toFixed(2)} s: steady.`;
+          state.presses += 1;
+        }
+        if (state.presses >= config.callPresses) {
+          if (state.annoyance >= 1) { state.presses = 0; state.lastPressAt = 0; status.textContent = 'You called, but your parents have given up on you.'; render(); return; }
+          return end(`Help came with the monster ${Math.round(state.proximity * 100)}% of the way. Calm, then the next one comes in 3\u20135 s.`);
+        }
+        render();
+      });
+      render();
+    })();
+  </script>
 </body>
 </html>
