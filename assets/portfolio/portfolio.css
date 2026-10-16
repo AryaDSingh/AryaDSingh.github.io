@@ -209,4 +209,25 @@ footer div{display:flex;gap:26px}
 .step-dots button::after{content:"";display:block;height:4px;background:var(--rule)}
 .step-dots button[aria-current="step"]::after{background:var(--blue)}
 .step-dots button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* Runline route viewer */
+.route-viewer{margin-top:10px}
+.route-viewer .floor-controls button{min-height:44px;padding:0 16px;background:var(--paper);color:var(--blue);border:1px solid var(--blue);font:500 12px var(--mono)}
+.route-viewer .floor-controls button:hover{background:var(--blue);color:#fff}
+.route-viewer .floor-controls button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.route-viewer figcaption{align-items:center}
+.route-viewer figcaption p{margin:0;flex:1;color:var(--ink)}
+.route-viewer figcaption p b{font:500 11px var(--mono);color:var(--blue);margin-right:8px}
+.route-stage{background:#171c25;padding:clamp(12px,3vw,32px)}
+.route-stage svg{display:block;width:100%;height:auto;max-height:260px}
+.route-stage #route-side{max-height:200px}
+.route-view-label{font:10px/1 var(--mono);color:#8b93a7;letter-spacing:.05em;margin:0 0 8px}
+.route-view-label+svg{margin-bottom:18px}
+.route-stage svg:last-child{margin-bottom:0}
+.route-scrub{display:flex;align-items:center;gap:14px;padding-top:14px}
+.route-scrub input{flex:1;accent-color:var(--blue);min-height:44px}
+.route-scrub output{font:12px var(--mono);color:var(--muted);min-width:64px;text-align:right}
+.route-ribbon{display:flex;height:8px;border-radius:2px;overflow:hidden;margin-top:4px}
+.route-note{font-size:13px;color:var(--muted);margin:12px 0 0;max-width:760px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:720px){.route-viewer figcaption p{margin:4px 0 12px}}
 @media(max-width:720px){.floor-viewer figcaption p{margin:4px 0 12px}.floor-rules{margin-top:45px}.floor-steps{margin-top:45px}}

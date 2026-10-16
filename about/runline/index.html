@@ -23,6 +23,19 @@
       </section>
       <figure class="case-banner"><img src="../../assets/portfolio/runline-rooftops.png" width="1280" height="720" alt="Runline greybox rooftop course, with red obstacles marking the route between tall buildings"><figcaption><span>ROOFTOPS / PROTOTYPE CAPTURE</span>A course adapted from faith-runner, running in Unreal.</figcaption></figure>
       <section class="case-story section-pad" id="movement" aria-labelledby="movement-title"><div><p class="eyebrow">The engineering question</p><h2 id="movement-title">Same input.<br><em>Same movement?</em></h2></div><div><p class="case-large">A port needs more than a similar-looking jump.</p><p>RunlineCore is a function-by-function C++20 port of the Rust movement crate in tnrjns’s faith-runner. It has no Unreal dependency. Sprinting, vaulting, wallruns, ledge grabs, slides, rolls, and turns are evaluated inside the core.</p><p>Recorded inputs from the reference are replayed through the port. Position, velocity, movement state, and events are compared frame by frame, so differences can be found before camera effects and animation make them harder to see.</p><div class="parity-flow" aria-label="The Rust reference records traces which are replayed and compared against the C++ core"><strong>Rust reference</strong><span aria-hidden="true">→</span><strong>Recorded traces</strong><span aria-hidden="true">→</span><strong>C++ replay</strong></div></div></section>
+      <figure class="case-banner route-viewer" aria-labelledby="route-heading">
+        <div class="route-stage">
+          <p class="route-view-label">FROM ABOVE</p>
+          <svg id="route-plan" role="img" aria-label="The course from above, with the recorded path"></svg>
+          <p class="route-view-label">FROM THE SIDE</p>
+          <svg id="route-side" role="img" aria-label="The course from the side, with the recorded path"></svg>
+        </div>
+        <figcaption><span id="route-heading">RECORDED RUNS / FROM THE PARITY TESTS</span><p id="route-caption" aria-live="polite">Billboard wallrun</p><div class="floor-controls"><button type="button" id="route-prev" aria-label="Previous route">&larr;</button><button type="button" id="route-play" aria-pressed="false">PLAY</button><button type="button" id="route-next" aria-label="Next route">NEXT ROUTE &rarr;</button></div></figcaption>
+        <div class="route-scrub"><label class="visually-hidden" for="route-time">Time in the run</label><input type="range" id="route-time" min="0" max="0" value="0" step="1"><output id="route-readout" for="route-time">0.00 s</output></div>
+        <div class="route-ribbon" id="route-ribbon" aria-hidden="true"></div>
+        <ul class="floor-legend" id="route-legend" aria-label="Movement states"></ul>
+        <p class="route-note">Eight runs recorded from faith-runner&rsquo;s own tests across the Rooftops course. RunlineCore replays every one and must match each frame exactly; what you see is the shared path. The live route uses <span id="route-states"></span>.</p>
+      </figure>
       <section class="case-system section-pad" aria-labelledby="systems-title"><p class="eyebrow">From the repository</p><h2 id="systems-title">Preserve the behaviour.<br>Then connect the engine.</h2><div class="case-system-grid"><article><span>176 REFERENCE TRACES</span><h3>Check the core.</h3><p>The repository documents bit-identical replays of the Rust reference through C++. Tests compare the exact values, not just whether a move looks close.</p></article><article><span>157 BOX-WORLD TRACES</span><h3>Check collision too.</h3><p>The box-world traces also replay through Unreal’s collision adapter. This checks the boundary between the portable movement rules and the game world.</p></article><article><span>60 HZ SIMULATION</span><h3>Keep the adapter thin.</h3><p>The movement component steps the core at a fixed rate, with interpolated rendering. Input, collision, camera effects, and animation connect through the Unreal layer.</p></article></div><a class="case-text-link" href="https://github.com/AryaDSingh/runline#whats-here" target="_blank" rel="noopener noreferrer">Read the implementation &amp; test notes ↗</a></section>
       <figure class="case-banner case-banner-second"><img src="../../assets/portfolio/runline-slide.png" width="1600" height="900" loading="lazy" alt="First-person view of a slide beneath a red rail, with the runner's legs and time trial timer visible"><figcaption><span>SLIDE / PROTOTYPE CAPTURE</span>Movement, first-person presentation, and a running time trial.</figcaption></figure>
       <section class="case-story section-pad" aria-labelledby="next-title"><div><p class="eyebrow">What’s working &amp; what’s next</p><h2 id="next-title">Prove the port.<br><em>Then push it.</em></h2></div><div><p class="case-large">The current build has a rooftop course, checkpoints, a time trial, and a body animated by movement state.</p><p>Input supports keyboard and gamepad, with camera effects and pause and options menus. The next design step is to test the feel with players and develop a small number of new momentum moves that fit the existing rules.</p><p>Those new moves are planned work. This project is still in development; the source includes build instructions.</p><div class="case-bottom-links"><a class="button" href="https://github.com/AryaDSingh/runline" target="_blank" rel="noopener noreferrer">Source &amp; build instructions ↗</a><a class="plain-link" href="../#work">Back to the work ↗</a></div></div></section>
@@ -30,5 +43,111 @@
     </main>
     <footer><span>Arya Singh © <span id="year">2026</span></span><div><a href="https://github.com/AryaDSingh" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:ads26@sfu.ca">Email ↗</a><a href="#top">Back to top ↑</a></div></footer>
   </div>
+  <script>
+    (async () => {
+      // Recorded rooftop routes (tools/export-runline-routes.py): course boxes, and per
+      // frame x, y, z in metres (Y up), horizontal speed and movement state, at 60 Hz.
+      const colours = {'Ground': '#9aa4b8', 'Air': '#6fb6ff', 'Vault': '#ffb35c', 'Vault onto': '#ff8a3d', 'Slide': '#c9a6ff',
+        'Wallrun': '#7ee081', 'Wallclimb': '#4fd1c5', 'Ledge hang': '#ffd34d', 'Pull up': '#f2e8a0', 'Roll': '#ff6b8b'};
+      let data;
+      try { data = await (await fetch('../../assets/portfolio/runline-routes.json')).json(); } catch { return; }
+      const ns = 'http://www.w3.org/2000/svg';
+      const el = (name, attrs, parent) => { const e = document.createElementNS(ns, name); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.appendChild(e); return e; };
+      const plan = document.getElementById('route-plan'), side = document.getElementById('route-side');
+      const caption = document.getElementById('route-caption'), time = document.getElementById('route-time');
+      const readout = document.getElementById('route-readout'), play = document.getElementById('route-play');
+      const ribbon = document.getElementById('route-ribbon'), statesNote = document.getElementById('route-states');
+      const legend = document.getElementById('route-legend');
+      for (const s of data.states) { const li = document.createElement('li'); li.innerHTML = `<i style="background:${colours[s] || '#ccc'}"></i>${s}`; legend.appendChild(li); }
+      const scale = 10; // pixels per metre
+      let route = 1, frame = 0, timer = null, markers = [];
+
+      const draw = () => {
+        const r = data.routes[route], fr = r.frames;
+        const zs = fr.map(f => f[2]), ys = fr.map(f => f[1]);
+        const zMax = Math.max(...zs) + 6, zMin = Math.min(...zs) - 6;
+        const width = (zMax - zMin) * scale;
+        const along = z => (zMax - z) * scale; // the course runs toward -z: left to right on screen
+        const boxes = data.boxes.filter(b => b[5] > zMin && b[2] < zMax);
+        // From above: x across, z along.
+        plan.innerHTML = ''; plan.setAttribute('viewBox', `0 0 ${width} ${25 * scale}`);
+        const across = x => (12.5 - x) * scale;
+        const tops = boxes.map(b => b[4]), lo = Math.min(...tops), hi = Math.max(...tops);
+        for (const b of [...boxes].sort((a, c) => a[4] - c[4])) {
+          const shade = Math.round(52 + 70 * (hi > lo ? (b[4] - lo) / (hi - lo) : .5));
+          el('rect', {x: along(b[5]), y: across(b[3]), width: (b[5] - b[2]) * scale, height: (b[3] - b[0]) * scale,
+            fill: `rgb(${shade - 8},${shade},${shade + 18})`, stroke: '#0e1117', 'stroke-width': 1}, plan);
+        }
+        // From the side: z along, height up.
+        const yLo = Math.min(...ys) - 3, yHi = Math.max(...ys) + 4;
+        side.innerHTML = ''; side.setAttribute('viewBox', `0 0 ${width} ${(yHi - yLo) * scale}`);
+        const up = y => (yHi - y) * scale;
+        for (const b of boxes) {
+          const top = Math.min(b[4], yHi), bottom = Math.max(b[1], yLo);
+          if (top <= bottom) continue;
+          el('rect', {x: along(b[5]), y: up(top), width: (b[5] - b[2]) * scale, height: (top - bottom) * scale,
+            fill: '#3a4152', 'fill-opacity': .55, stroke: '#0e1117', 'stroke-width': 1}, side);
+        }
+        // The path, one segment per run of the same state.
+        markers = [];
+        for (const [svg, px, py] of [[plan, f => along(f[2]), f => across(f[0])], [side, f => along(f[2]), f => up(f[1] + 0.9)]]) {
+          let start = 0;
+          for (let i = 1; i <= fr.length; i++) {
+            if (i < fr.length && fr[i][4] === fr[start][4]) continue;
+            const pts = fr.slice(start, Math.min(i + 1, fr.length)).map(f => `${px(f).toFixed(1)},${py(f).toFixed(1)}`).join(' ');
+            el('polyline', {points: pts, fill: 'none', stroke: colours[data.states[fr[start][4]]] || '#ccc', 'stroke-width': 4,
+              'stroke-linecap': 'round', 'stroke-linejoin': 'round'}, svg);
+            start = i;
+          }
+          const dot = el('circle', {r: 7, fill: '#fff', stroke: '#0e1117', 'stroke-width': 3}, svg);
+          markers.push([dot, px, py]);
+        }
+        // The timeline of states.
+        ribbon.innerHTML = '';
+        let start = 0;
+        for (let i = 1; i <= fr.length; i++) {
+          if (i < fr.length && fr[i][4] === fr[start][4]) continue;
+          const seg = document.createElement('span');
+          seg.style.flex = String(i - start); seg.style.background = colours[data.states[fr[start][4]]] || '#ccc';
+          seg.title = data.states[fr[start][4]]; ribbon.appendChild(seg); start = i;
+        }
+        const used = [...new Set(fr.map(f => data.states[f[4]]))];
+        statesNote.textContent = used.join(', ').toLowerCase();
+        time.max = String(fr.length - 1);
+        show(Math.min(frame, fr.length - 1));
+      };
+      const show = (i) => {
+        const fr = data.routes[route].frames;
+        frame = i; time.value = String(i);
+        const f = fr[i];
+        for (const [dot, px, py] of markers) { dot.setAttribute('cx', px(f)); dot.setAttribute('cy', py(f)); }
+        readout.textContent = `${(i / 60).toFixed(2)} s`;
+        caption.innerHTML = `<b>${route + 1} / ${data.routes.length}</b> ${data.routes[route].title} &middot; ${data.states[f[4]]} &middot; ${f[3].toFixed(1)} m/s`;
+      };
+      const stop = () => { cancelAnimationFrame(timer); timer = null; play.textContent = 'PLAY'; play.setAttribute('aria-pressed', 'false'); };
+      play.addEventListener('click', () => {
+        if (timer) { stop(); return; }
+        const fr = data.routes[route].frames;
+        if (frame >= fr.length - 1) show(0);
+        let last = null, carry = 0;
+        const tick = (now) => {
+          // The first frame's timestamp can precede the click: start counting from it.
+          if (last !== null) carry += Math.max(0, now - last) * 60 / 1000;
+          last = now;
+          const step = Math.floor(carry); carry -= step;
+          if (step) show(Math.min(frame + step, fr.length - 1));
+          if (frame >= fr.length - 1) { stop(); return; }
+          timer = requestAnimationFrame(tick);
+        };
+        timer = requestAnimationFrame(tick);
+        play.textContent = 'PAUSE'; play.setAttribute('aria-pressed', 'true');
+      });
+      time.addEventListener('input', () => { stop(); show(Number(time.value)); });
+      const go = (d) => { stop(); route = (route + d + data.routes.length) % data.routes.length; frame = 0; draw(); };
+      document.getElementById('route-prev').addEventListener('click', () => go(-1));
+      document.getElementById('route-next').addEventListener('click', () => go(1));
+      draw();
+    })();
+  </script>
 </body>
 </html>
